@@ -3,9 +3,12 @@ var axios = require('axios');
 var router = express.Router();
 var json = require('json')
 
+// Введите ключ API и раскомментируйте строку ниже
+// owm_key = ''
+
 router.post('/', function(req, res) {
     let taxId = req.body.queryResult.parameters["taxId"];
-    let url = `https://api-fns.ru/api/egr?req=${taxId}&key=5b0c3c6378a0e247e5c1d33da40855d840d0f82e`;
+    let url = `https://api-fns.ru/api/egr?req=${taxId}&key=${owm_key}`;
 
     axios.get(url).then(aRes => {
         let activity = JSON.stringify(aRes.data);
